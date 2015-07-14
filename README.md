@@ -1,5 +1,6 @@
 # 如何在微信6.0.2+版本不接入微信API的情况下设置自定义分享内容（图片、链接、标题）
 
+微信在6.0.2及以上版本已经回收客户端自定分享的权限，而是以授权api的形式开放出来。有时候我们只想简单地自定义分享的title,分享的图片以及分享的链接时，而不想或者缺乏资源去接入微信api的时候该怎么实现呢？
 
 ## 方法如下
 
@@ -19,8 +20,11 @@ document.title = 'test'
 ```javascript
 document.documentURI = "http://navyxie.github.io/"
 ```
+以上方法即可在微信6.0.2+版本自定义分享内容
 
-## 微信在6.0.2及以上版本已经回收客户端自定分享的权限，而是以授权api的形式开放出来。有时候我们只想简单地自定义分享的title,分享的图片以及分享的链接时，而不想或者缺乏资源去接入微信api的时候该怎么实现呢？接下来，带大家通过解压微信app(android),分析js源代码来解决这个问题。
+----------------------------------------------------------------------华丽丽分割线----------------------------------------------------------------------
+
+## 接下来，带大家通过解压微信app(android),分析js源代码来了解微信api的运行原理。
 
 ### 前期准备
 1. 下载微信app(android),下载地址:[http://weixin.qq.com/cgi-bin/readtemplate?t=weixin_download_list&lang=zh_CN](http://weixin.qq.com/cgi-bin/readtemplate?t=weixin_download_list&lang=zh_CN)
@@ -182,7 +186,7 @@ if (_WXJS(_img).css('display')=='none' || _WXJS(_img).css('visibility')=='hidden
 2. 我尝试着直接在browser模拟调用wxjs的api，会返回错误提示没权限，微信在安全授权这一块做得还是不错滴
 3. 通过阅读阅代码，可以学习到很多知识，也能加深对该源代码的了解，为后续解决问题默默做了积累
 4. 微信webkit浏览器与native的通讯是通过创建一个隐藏的iframe,然后自定义通讯协议：weixin://。相信很多hybrid app 开发都在用这种方式。
-
+5. 当你需要使用其他微api时，比如获取用户授权信息，就需接微信api了。
 
 #小坑
 
