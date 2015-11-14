@@ -194,3 +194,6 @@ if (_WXJS(_img).css('display')=='none' || _WXJS(_img).css('visibility')=='hidden
 1. 自定义分享的图片尺寸必须大于290*290,且必须由一个隐藏的容器包裹着
 2. 虽然我们可以在不接入weixin api的情况下自定义分享的title,link以及image，但是我们不能自定分享的描述内容（desc），默认使用了document.documentURI
 
+
+*IOS上不支持，document.documentURI为只读属性*
+
