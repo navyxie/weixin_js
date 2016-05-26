@@ -15,10 +15,13 @@ document.title = 'test'
 ```javascript
 <div style="display:none"><img src="share.jpg" /></div>
 ```
-3.设置分享的链接：动态修改document.documentURI的值即可
+3.设置分享的链接：动态修改document.documentURI的值即可（safari下，document.documentURI为只读属性，可借助history.pushState ）
 
 ```javascript
-document.documentURI = "http://navyxie.github.io/"
+//android:
+document.documentURI = "http://www.navyxie.com"
+//ios:
+window.history.pushState("weixin-share-url", "weixinshare", "http://www.navyxie.com");//只可设置同域链接
 ```
 以上方法即可在微信6.0.2+版本自定义分享内容，不需额外引入微信的js文件
 
@@ -195,5 +198,5 @@ if (_WXJS(_img).css('display')=='none' || _WXJS(_img).css('visibility')=='hidden
 2. 虽然我们可以在不接入weixin api的情况下自定义分享的title,link以及image，但是我们不能自定分享的描述内容（desc），默认使用了document.documentURI
 
 
-*IOS上不支持，document.documentURI为只读属性*
+*IOS上不支持，document.documentURI为只读属性,我们可以通过html5的history.pushState api 来无刷新更新页面链接（只可设置同域链接）。此方法有一个弊端：就是复制当前页面url时，页面的链接就会是pushState设置的链接了。*
 
