@@ -19,7 +19,7 @@ document.title = 'test'
 
 ```javascript
 //android:
-document.documentURI = "http://www.navyxie.com"
+document.documentURI = "http://www.navyxie.com"；//经测试wechat6.3.13版本下此方法已失效，可使用同下IOS的方法自定义。
 //ios:
 window.history.pushState("weixin-share-url", "weixinshare", "http://www.navyxie.com");//只可设置同域链接
 ```
