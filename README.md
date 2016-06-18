@@ -197,6 +197,7 @@ if (_WXJS(_img).css('display')=='none' || _WXJS(_img).css('visibility')=='hidden
 1. 自定义分享的图片尺寸必须大于290*290,且必须由一个隐藏的容器包裹着
 2. 虽然我们可以在不接入weixin api的情况下自定义分享的title,link以及image，但是我们不能自定分享的描述内容（desc），默认使用了document.documentURI
 
+**如果需要获取微信用户信息，可以参考这里[https://github.com/navyxie/wechat-develop](https://github.com/navyxie/wechat-develop)**
 
 *IOS上不支持，document.documentURI为只读属性,我们可以通过html5的history.pushState api 来无刷新更新页面链接（只可设置同域链接）。此方法有一个弊端：就是复制当前页面url时，页面的链接就会是pushState设置的链接了。*
 
